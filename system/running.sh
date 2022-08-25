@@ -5,7 +5,7 @@ NC="\e[0m"
 # VPS ISP INFORMATION
 ITAM='\033[0;30m'
 echo -e "$ITAM"
-NAMAISP=$( curl -s ipinfo.io/org | cut -d " " -f 2-10  )
+NAMAISP=$( curl -s ipinfo.io/org | cut -d " " -f 2-99  )
 REGION=$( curl -s ipinfo.io/region )
 #clear
 COUNTRY=$( curl -s ipinfo.io/country )
@@ -30,25 +30,9 @@ swap=$( free -m | awk 'NR==4 {print $2}' )
 NC='\033[0m'
 echo -e "$NC"
 
-# USERNAME
-rm -f /usr/bin/user
-username=$( curl https://raw.githubusercontent.com/${GitUser}/allow/main/ipvps.conf | grep $MYIP | awk '{print $2}' )
-echo "$username" > /usr/bin/user
-
-# Order ID
-rm -f /usr/bin/ver
-user=$( curl https://raw.githubusercontent.com/${GitUser}/allow/main/ipvps.conf | grep $MYIP | awk '{print $3}' )
-echo "$user" > /usr/bin/ver
-
-# validity
-rm -f /usr/bin/e
-valid=$( curl https://raw.githubusercontent.com/${GitUser}/allow/main/ipvps.conf | grep $MYIP | awk '{print $4}' )
-echo "$valid" > /usr/bin/e
-
-# DETAIL ORDER
-username=$(cat /usr/bin/user)
-oid=$(cat /usr/bin/ver)
-exp=$(cat /usr/bin/e)
+# CLIENT DETAILS
+NAME=$(curl -sS https://raw.githubusercontent.com/tryoo127/access/main/ip | grep $IPVPS | awk '{print $2}')
+EXP=$(curl -sS https://raw.githubusercontent.com/tryoo127/access/main/ip | grep $IPVPS | awk '{print $3}')
 
 # Tipe Processor
 totalcore="$(grep -c "^processor" /proc/cpuinfo)" 
@@ -107,7 +91,7 @@ echo -e "\e[32mloading...\e[0m"
 clear
 echo -e ""
 echo -e "Your VPS Information :"
-echo -e "\e[0;32mSCRIPT VPS BY V-CODE\e[0m"
+echo -e "\e[0;32mSCRIPT VPS BY NONE\e[0m"
 echo "-----------------------------------------------------------"
 echo "Operating System Information :"
 echo -e "VPS Type    : $typevps"
