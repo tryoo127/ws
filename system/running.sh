@@ -2,107 +2,6 @@
 red="\e[1;31m"
 green="\e[0;32m"
 NC="\e[0m"
-# VPS Information
-Checkstart1=$(ip route | grep default | cut -d ' ' -f 3 | head -n 1);
-if [[ $Checkstart1 == "venet0" ]]; then 
-    clear
-	  lan_net="venet0"
-    typevps="OpenVZ"
-    sleep 1
-else
-    clear
-		lan_net="eth0"
-    typevps="KVM"
-    sleep 1
-fi
-MYIP=$(wget -qO- icanhazip.com);
-# VPS ISP INFORMATION
-ITAM='\033[0;30m'
-echo -e "$ITAM"
-NAMAISP=$( curl -s ipinfo.io/org | cut -d " " -f 2-10  )
-REGION=$( curl -s ipinfo.io/region )
-#clear
-COUNTRY=$( curl -s ipinfo.io/country )
-#clear
-WAKTU=$( curl -s ipinfo.ip/timezone )
-#clear
-CITY=$( curl -s ipinfo.io/city )
-#clear
-REGION=$( curl -s ipinfo.io/region )
-#clear
-WAKTUE=$( curl -s ipinfo.io/timezone )
-#clear
-koordinat=$( curl -s ipinfo.io/loc )
-
-# TOTAL RAM
-tram=$( free -m | awk 'NR==2 {print $2}' )
-uram=$( free -m | awk 'NR==2 {print $3}' )
-fram=$( free -m | awk 'NR==2 {print $4}' )
-swap=$( free -m | awk 'NR==4 {print $2}' )
-
-#clear
-NC='\033[0m'
-echo -e "$NC"
-
-# Tipe Processor
-totalcore="$(grep -c "^processor" /proc/cpuinfo)" 
-totalcore+=" Core"
-corediilik="$(grep -c "^processor" /proc/cpuinfo)" 
-tipeprosesor="$(awk -F ': | @' '/model name|Processor|^cpu model|chip type|^cpu type/ {
-                        printf $2;
-                        exit
-                        }' /proc/cpuinfo)"
-
-# Shell Version
-shellversion=""
-shellversion=Bash
-shellversion+=" Version" 
-shellversion+=" ${BASH_VERSION/-*}" 
-versibash=$shellversion
-
-# Getting OS Information
-source /etc/os-release
-Versi_OS=$VERSION
-ver=$VERSION_ID
-Tipe=$NAME
-URL_SUPPORT=$HOME_URL
-basedong=$ID
-
-# Download
-download=`grep -e "lo:" -e "wlan0:" -e "eth0" /proc/net/dev  | awk '{print $2}' | paste -sd+ - | bc`
-downloadsize=$(($download/1073741824))
-
-# Upload
-upload=`grep -e "lo:" -e "wlan0:" -e "eth0" /proc/net/dev | awk '{print $10}' | paste -sd+ - | bc`
-uploadsize=$(($upload/1073741824))
-
-# Getting CPU Information
-cpu_usage1="$(ps aux | awk 'BEGIN {sum=0} {sum+=$3}; END {print sum}')"
-cpu_usage="$((${cpu_usage1/\.*} / ${corediilik:-1}))"
-cpu_usage+=" %"
-
-# OS Uptime
-uptime="$(uptime -p | cut -d " " -f 2-10)"
-
-# Kernel Terbaru
-kernelku=$(uname -r)
-
-# Waktu Sekarang 
-harini=`date -d "0 days" +"%d-%m-%Y"`
-jam=`date -d "0 days" +"%X"`
-
-# CLIENT DETAILS
-NAME=$(curl -sS https://raw.githubusercontent.com/tryoo127/access/main/ip | grep $IPVPS | awk '{print $2}')
-EXP=$(curl -sS https://raw.githubusercontent.com/tryoo127/access/main/ip | grep $IPVPS | awk '{print $3}')
-
-# DNS Patch
-tipeos2=$(uname -m)
-
-# Getting Domain Name
-Domen="$(cat /usr/local/etc/xray/domain)"
-# Echoing Result
-echo -e "\e[32mloading...\e[0m"
-clear
 echo -e ""
 echo -e "Your VPS Information :"
 echo -e "\e[0;32mSCRIPT VPS BY NONE\e[0m"
@@ -150,8 +49,8 @@ echo -e "Date        : $harini"
 echo -e "Time        : $jam ( WIB )"
 echo "-----------------------------------------------------------"
 echo -e "\e[1;32mSTATUS SCRIPT :\e[0m"
-echo -e "\e[0;34mClient Name        : $NAME"
-echo -e "\e[0;34mExpired Status     : $EXP"
+echo -e "\e[0;34mClient Name        :\e[0m $name"
+echo -e "\e[0;34mExpired Status     :\e[0m $exp"
 echo "-----------------------------------------------------------"
 echo -e ""
 echo -e "              \e[0;32m[\e[1;36mSYSTEM STATUS INFORMATION\e[0;32m]\e[0m"
