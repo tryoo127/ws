@@ -2,10 +2,24 @@
 red="\e[1;31m"
 green="\e[0;32m"
 NC="\e[0m"
+# VPS Information
+Checkstart1=$(ip route | grep default | cut -d ' ' -f 3 | head -n 1);
+if [[ $Checkstart1 == "venet0" ]]; then 
+    clear
+	  lan_net="venet0"
+    typevps="OpenVZ"
+    sleep 1
+else
+    clear
+		lan_net="eth0"
+    typevps="KVM"
+    sleep 1
+fi
+MYIP=$(wget -qO- icanhazip.com);
 # VPS ISP INFORMATION
 ITAM='\033[0;30m'
 echo -e "$ITAM"
-NAMAISP=$( curl -s ipinfo.io/org | cut -d " " -f 2-99  )
+NAMAISP=$( curl -s ipinfo.io/org | cut -d " " -f 2-10  )
 REGION=$( curl -s ipinfo.io/region )
 #clear
 COUNTRY=$( curl -s ipinfo.io/country )
@@ -29,10 +43,6 @@ swap=$( free -m | awk 'NR==4 {print $2}' )
 #clear
 NC='\033[0m'
 echo -e "$NC"
-
-# CLIENT DETAILS
-NAME=$(curl -sS https://raw.githubusercontent.com/tryoo127/access/main/ip | grep $IPVPS | awk '{print $2}')
-EXP=$(curl -sS https://raw.githubusercontent.com/tryoo127/access/main/ip | grep $IPVPS | awk '{print $3}')
 
 # Tipe Processor
 totalcore="$(grep -c "^processor" /proc/cpuinfo)" 
@@ -80,6 +90,10 @@ kernelku=$(uname -r)
 # Waktu Sekarang 
 harini=`date -d "0 days" +"%d-%m-%Y"`
 jam=`date -d "0 days" +"%X"`
+
+# CLIENT DETAILS
+NAME=$(curl -sS https://raw.githubusercontent.com/tryoo127/access/main/ip | grep $IPVPS | awk '{print $2}')
+EXP=$(curl -sS https://raw.githubusercontent.com/tryoo127/access/main/ip | grep $IPVPS | awk '{print $3}')
 
 # DNS Patch
 tipeos2=$(uname -m)
@@ -134,6 +148,10 @@ echo -e "Coordinate  : $koordinat"
 echo -e "Time Zone   : $WAKTUE"
 echo -e "Date        : $harini"
 echo -e "Time        : $jam ( WIB )"
+echo "-----------------------------------------------------------"
+echo -e "\e[1;32mSTATUS SCRIPT :\e[0m"
+echo -e "\e[0;34mClient Name        :\e[0m $name"
+echo -e "\e[0;34mExpired Status     :\e[0m $exp"
 echo "-----------------------------------------------------------"
 echo -e ""
 echo -e "              \e[0;32m[\e[1;36mSYSTEM STATUS INFORMATION\e[0;32m]\e[0m"
