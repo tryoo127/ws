@@ -20,15 +20,9 @@ echo -e "${green} PLEASE CONTACT @XoolVPN TO REGISTER YOUR I.P${NC}"
 sleep 7
 exit 0
 fi
-clear
 mkdir /var/lib/premium-script;
 echo -e "\e[1;32mPlease enter your subdomain/domain. If not, please press enter."
 read -p "Recommended (Subdomain): " host
-ip=$(wget -qO- ipv4.icanhazip.com)
-host_ip=$(ping "${host}" -c 1 | sed '1{s/[^(]*(//;s/).*//;q}')
-if [[ ${host_ip} == "${ip}" ]]; then
-	echo -e ""
-	echo -e " ${green}HOST/DOMAIN MATCHED..INSTALLATION WILL CONTINUE${NC}"
 echo "IP=" >> /var/lib/premium-script/ipvps.conf
 echo $host > /root/domain
 echo -e ""
