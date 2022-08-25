@@ -206,12 +206,7 @@ echo "   - Auto Delete Expired Account" | tee -a log-install.txt
 echo "   - Full Orders For Various Services" | tee -a log-install.txt
 echo "   - White Label" | tee -a log-install.txt
 echo "   - Installation Log --> /root/log-install.txt"  | tee -a log-install.txt
-echo "-------------------------Script By None-----------------------" | tee -a log-install.txt
-clear
-echo ""
-echo -e "    \e[1;32m.------------------------------------------.\e[0m"
-echo -e "    \e[1;32m|     SUCCESFULLY INSTALLED THE SCRIPT     |\e[0m"
-echo -e "    \e[1;32m'------------------------------------------'\e[0m"
+echo "=========================[SCRIPT PREMIUM]========================" | tee -a log-install.txt
 echo ""
 echo -e "   \e[1;32mSERVER WILL AUTOMATICALLY REBOOT IN 10 SECONDS\e[0m"
 rm -r setup.sh
