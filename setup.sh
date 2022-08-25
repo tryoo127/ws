@@ -1,8 +1,4 @@
 #!/bin/bash
-red='\e[1;31m'
-green='\e[0;32m'
-cyan='\e[0;36m'
-NC='\e[0m'
 #wget https://github.com/${GitUser}/
 GitUser="tryoo127"
 MYIP=$(wget -qO- ipinfo.io/ip);
