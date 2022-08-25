@@ -25,8 +25,8 @@ host_ip=$(ping "${host}" -c 1 | sed '1{s/[^(]*(//;s/).*//;q}')
 if [[ ${host_ip} == "${ip}" ]]; then
 	echo -e ""
 	echo -e " ${green}HOST/DOMAIN MATCHED..INSTALLATION WILL CONTINUE${NC}"
-    echo "IP=" >> /var/lib/premium-script/ipvps.conf
-    echo $host > /root/domain
+        echo "IP=" >> /var/lib/premium-script/ipvps.conf
+        echo $host > /root/domain
 sleep 2
 	clear
 else
