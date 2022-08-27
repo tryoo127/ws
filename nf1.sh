@@ -37,8 +37,8 @@ Font_White="\033[37m";
 Font_Suffix="\033[0m";
 
 clear;
-   echo -e "${Font_Green}STREAMING DNS CHECKER${Font_Suffix}"
-   echo -e "SYSTEM TIME: $(date)" 
+     echo -e "${Font_Green}STREAMING DNS CHECKER${Font_Suffix}"
+     echo -e "SYSTEM TIME: $(date)" 
 
 export LANG="en_US";
 export LANGUAGE="en_US";
