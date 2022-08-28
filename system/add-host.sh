@@ -16,7 +16,7 @@ echo -e "                  CHANGE DOMAIN"
 echo -e "${BLUE}=====================================================${NC}"
 echo ""
 echo "Please Input Domain Or Subdomain"
-read -p "Hostname / Domain: " -e host
+read -p "Hostname / Domain: " host
 echo "IP=" >> /var/lib/premium-script/ipvps.conf
 echo $host > /root/domain
 sleep 2
