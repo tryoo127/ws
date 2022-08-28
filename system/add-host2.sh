@@ -4,7 +4,6 @@ IZIN=$( curl -sS https://raw.githubusercontent.com/xoolvpn/access/main/ip | awk 
 if [ $MYIP = $IZIN ]; then
 clear
 echo -e "${green}Tahniah! Anda Dibenarkan menggunakan SAMVPN...${NC}"
-else
 clear
 echo ""
 rm -f setup.sh
