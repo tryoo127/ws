@@ -4,6 +4,7 @@ IZIN=$( curl -sS https://raw.githubusercontent.com/tryoo127/access/main/ip | awk
 if [ $MYIP = $IZIN ]; then
 clear
 echo -e "${green}Tahniah! Anda Dibenarkan menggunakan..${NC}"
+else
 clear
 echo ""
 rm -f setup.sh
