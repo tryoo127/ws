@@ -6,7 +6,7 @@ MYIP=$(wget -qO- ipinfo.io/ip);
 
 clear
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;100;33m     • CERT / RENEW DOMAIN •       \E[0m"
+echo -e "\E[0;100;33m     • RECERT & RENEW DOMAIN •       \E[0m"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "" 
 echo "Please Input Your Pointing Domain In Cloudflare "
