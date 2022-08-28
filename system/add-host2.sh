@@ -1,18 +1,15 @@
 #!/bin/bash
 MYIP=$(wget -qO- ipinfo.io/ip);
-IZIN=$( curl -sS https://raw.githubusercontent.com/xoolvpn/access/main/ip | awk '{print $4}' | grep $MYIP )
+IZIN=$( curl -sS https://raw.githubusercontent.com/tryoo127/access/main/ip | awk '{print $4}' | grep $MYIP )
 if [ $MYIP = $IZIN ]; then
 clear
-echo -e "${green}Tahniah! Anda Dibenarkan menggunakan SAMVPN...${NC}"
+echo -e "${green}Tahniah! Anda Dibenarkan menggunakan..${NC}"
 clear
 echo ""
 rm -f setup.sh
 echo '                            ...                           '
 echo '        Anda Tidak Dibenarkan Menggunakan Script ini!     '
 echo '                            ...                           '
-echo '        SILA REGISTER IP ANDA DI BOT @ctechdidik_bot!     '
-echo '                        t.me/XoolVPN                      '
-sleep 20
 exit 0
 fi
 clear
