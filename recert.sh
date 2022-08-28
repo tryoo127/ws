@@ -9,7 +9,7 @@ source /var/lib/premium-script/ipvps.conf
 domain=$(cat /usr/local/etc/xray/domain)
 clear
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[0;100;33m     • RECERT & RENEW DOMAIN •       \E[0m"
+echo -e "\E[0;100;33m     • RENEW DOMAIN & RECERT •       \E[0m"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "" 
 echo "Please Input Your Pointing Domain In Cloudflare "
