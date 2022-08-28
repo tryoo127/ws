@@ -16,20 +16,12 @@ echo -e "                  CHANGE DOMAIN"
 echo -e "${BLUE}=====================================================${NC}"
 echo ""
 echo "Please Input Domain Or Subdomain"
-read -p "Hostname / Domain: " host
-rm -f /var/lib/premium-script/ipvps.conf
-rm -f /etc/xray/domain
+read -p "Hostname / Domain: " -e host
+echo "IP=" >> /var/lib/premium-script/ipvps.conf
+echo $host > /root/domain
+sleep 2
 clear
-mkdir /etc/xray/domain
-mkdir /var/lib/premium-script;
-clear
-echo -e "Please Input Domain Or Subdomain Again"
-read -p "Hostname / Domain: " host
-echo "IP=$host" >> /var/lib/premium-script/ipvps.conf
-echo "$host" > /etc/xray/domain
-rm -f setup.sh
-exit 1
-fi
+else
 sleep 1
 #rm -f /home/domain
 echo "$host" > /usr/local/etc/xray/domain
