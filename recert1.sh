@@ -3,7 +3,10 @@ GREEN='\e[0;32m'
 BLUE='\e[0;34m'
 NC='\e[0m'
 MYIP=$(wget -qO- ipinfo.io/ip);
-
+echo start
+sleep 0.5
+source /var/lib/premium-script/ipvps.conf
+domain=$(cat /usr/local/etc/xray/domain)
 clear
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo -e "\E[0;100;33m     • RECERT & RENEW DOMAIN •       \E[0m"
@@ -11,7 +14,7 @@ echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━�
 echo -e "" 
 echo "Please Input Your Pointing Domain In Cloudflare "
 read -rp "Domain/Host: " -e host
-rm /etc/xray/domain
+rm /usr/local/etc/xray/domain
 echo "$host" > /usr/local/etc/xray/domain
 echo "IP=$host" >> /var/lib/premium-script/ipvps.conf
 echo -e "" 
