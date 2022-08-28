@@ -29,7 +29,7 @@ echo -e "       RENEW DOMAIN CLOUDFLARE & RECERT"
 echo -e "============================================="
 sleep 2
 echo " PLEASE INPUT YOUR POINTING DOMAIN ON CLOUDFLARE"
-read -rp " DOMAIN/HOST CLOUDFLARE I.P:" -e host
+read -rp " DOMAIN/HOST (CLOUDFLARE I.P) : " -e host
 rm /usr/local/etc/xray/domain
 echo "$host" > /usr/local/etc/xray/domain
 echo "IP=$host" >> /var/lib/premium-script/ipvps.conf
